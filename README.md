@@ -99,3 +99,6 @@ export default {
     }
   ]
 }
+
+### `show image`
+![Image text](https://github.com/Fine0830/tree-map-react/blob/master/src/assets/tree-map.png)
