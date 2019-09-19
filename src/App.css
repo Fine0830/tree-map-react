@@ -1,0 +1,77 @@
+
+#root {
+  position: relative;
+}
+.menu{
+  width: 180px;
+  height: 200px;
+  padding: 10px;
+  visibility: hidden;
+  position: absolute;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  font-size: 12px;
+  border-radius: 3px;
+  top: 0;
+  right: 0;
+  background: #fff;
+  z-index: 10;
+}
+.menu::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #fff;
+  position: absolute;
+  top: 30px;
+  left: -10px;
+}
+.info-menu {
+  padding: 0 0 10px 10px;
+}
+.info-menu>span {
+  display: block;
+  height: 20px;
+}
+.info-menu i {
+  display: inline-block;
+  font-style: normal;
+  height: 20px;
+  width: 60px;
+  text-align: right;
+}
+ul {
+  padding: 0;
+  margin: 0;
+}
+ul li {
+  list-style: none;
+  z-index: 100;
+  padding: 0 5px 5px 10px;
+  color: #1890ff;
+  font-size: 14px;
+}
+li:hover {
+  font-weight: bold;
+}
+.add-menu {
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+.operate-list {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 5;
+}
+.operate-list span { 
+  display: block;
+  border: 1px solid #ccc;
+  width: 15px;
+  height: 15px;
+  padding: 6px 8px 8px;
+  margin-top: 5px;
+  cursor: pointer;
+}
