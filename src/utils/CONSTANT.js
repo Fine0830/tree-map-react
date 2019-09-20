@@ -39,4 +39,9 @@ export default {
   },
   STARTBUF: 35,
   ENDBUF: -25,
+  TRANINFO: {
+    k: 1, // scale param
+    x: 60, // translate x
+    y: -30, // translate y
+  },
 }

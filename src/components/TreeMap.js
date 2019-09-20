@@ -16,11 +16,7 @@ class TreeMap extends React.Component {
       menuStatus: 'hidden',
       positionY: 0,
       positionX: 0,
-      tranInfo: {
-        k: 1, // scale param
-        x: 60, // translate x
-        y: -30, // translate y
-      },
+      tranInfo: CONSTANT.TRANINFO,
       isFullScreen: false,
       dataSource: null,
     }
