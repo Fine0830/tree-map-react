@@ -24,7 +24,7 @@ Your app is ready to be deployed!
 
 There are some functions, such as zoom in, zoom out, scale, add node, delete node
 
-### `data source`
+### `Data Source`
 
 export default {
   name: 'flare',
@@ -100,5 +100,5 @@ export default {
   ]
 }
 
-### `show image`
+### `Image Presentation`
 ![Image text](https://github.com/Fine0830/tree-map-react/blob/master/src/assets/tree-map.png)

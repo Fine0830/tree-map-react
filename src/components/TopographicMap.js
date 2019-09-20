@@ -5,7 +5,7 @@
 import React from 'react';
 import * as d3 from 'd3';
 import { Icon } from 'antd';
-import constant from './CONSTANT.js';
+import CONSTANT from './CONSTANT.js';
 import earth from '../assets/earth.svg';
 import user from '../assets/user.svg';
 import minusCircle from '../assets/circle.svg';
@@ -61,8 +61,8 @@ class TopographicMap extends React.Component {
   }
 
   nodeClick(event, currentNode) {
-    const positionX = event.pageX + 40 + 'px';
-    const positionY = event.pageY - 50  + 'px';
+    const positionX = event.pageX + CONSTANT.DIFF.X + 'px';
+    const positionY = event.pageY + CONSTANT.DIFF.Y  + 'px';
 
     event.stopPropagation();
     this.cancleActive();
@@ -80,7 +80,7 @@ class TopographicMap extends React.Component {
     if (!currentNode.children) {
       currentNode.children = [];
     }
-    currentNode.children.push(constant.NEWNODE);
+    currentNode.children.push(CONSTANT.NEWNODE);
     let rootNode = currentNode;
     while (rootNode.parent) {
       rootNode = rootNode.parent;
@@ -211,21 +211,21 @@ class TopographicMap extends React.Component {
         <svg width={width} height={height}>
           <g
             className="tree_map"
-            transform={tranInfo ? `translate(${tranInfo.x},${tranInfo.y}),scale(${tranInfo.k})` : null}>
+            transform={`translate(${tranInfo.x},${tranInfo.y}),scale(${tranInfo.k})`}>
             <g>
               {
                 links.map((link, i) => {
-                const start = { x: link.source.x, y: link.source.y + 35 };
-                const end = { x: link.target.x, y: link.target.y - 25 };
+                const start = { x: link.source.x, y: link.source.y + CONSTANT.STARTBUF };
+                const end = { x: link.target.x, y: link.target.y + CONSTANT.ENDBUF };
                 const pathLink = this.bezier_curve_generator({ source: start, target: end });
 
                 return <path 
                   key={i}
                   d={pathLink}
                   fill='none'
-                  stroke='#444'
+                  stroke={CONSTANT.THEME.LINESTROKE}
                   strokeWidth='1'
-                  strokeDasharray='5,5'
+                  strokeDasharray={CONSTANT.THEME.DASHARRAY}
                   markerEnd='url(#arrow)'/>
               })}
             </g>
@@ -239,28 +239,37 @@ class TopographicMap extends React.Component {
 
                 return (<g key={i} transform={`translate(${node.y}, ${node.x - 10})`}>
                   <defs>
-                    <marker id="arrow" markerUnits="strokeWidth"
-                      markerWidth='20' markerHeight='20' viewBox='0 0 12 12' 
-                      refX='5' refY='6' orient='auto'>
-                      <path d='M2,2 L10,6 L2,10 L6,6 L2,2' fill='#999' />
+                    <marker id="arrow"
+                      markerUnits="strokeWidth"
+                      markerWidth={CONSTANT.MARKER.MARKERWIDTH}
+                      markerHeight={CONSTANT.MARKER.MARKERHIEGHT}
+                      viewBox={CONSTANT.MARKER.VIEWBOX} 
+                      refX={CONSTANT.MARKER.REFX}
+                      refY={CONSTANT.MARKER.REFY}
+                      orient={CONSTANT.MARKER.ORIENT}>
+                      <path d={CONSTANT.MARKER.PATH} fill={CONSTANT.MARKER.FILL} />
                     </marker>
                   </defs>
                   <circle
-                    cx='8'
-                    cy='8'
-                    r={16}
+                    cx={CONSTANT.CIRCLE.CX}
+                    cy={CONSTANT.CIRCLE.CY}
+                    r={CONSTANT.CIRCLE.R}
                     fill='#fff'
-                    stroke={node.active ? '#1890ff' : '#333'}
+                    stroke={node.active ? CONSTANT.THEME.ACTIVE : CONSTANT.THEME.NONEACTIVE}
                     strokeWidth={node.active ? 2 : 1}
                     onClick={(event) => this.nodeClick(event, node)} />
                   <image
                     href={node.depth === 0 ? user : node.depth === 1 ? earth : minusCircle} 
                     onClick={(event) => this.nodeClick(event, node)}/>
-                  <rect x='10' y='32' width='40' height='20' fill={node.data.type === 'prod' ? '#1890ff' : '#c7254e'} />
-                  <text x='17' y='46' fill={node.data.type === 'prod' ? '#000' : '#fff'} style={{fontSize: '12px'}}>
+                  <rect x='10' y='32' width='40' height='20'
+                    fill={node.data.type === CONSTANT.PROD ? CONSTANT.THEME.RECTBLUE : CONSTANT.THEME.RECTRED} />
+                  <text
+                    x='17' y='46'
+                    fill={node.data.type === CONSTANT.PROD ? CONSTANT.THEME.TEXTBLACK : CONSTANT.THEME.TEXTWHITE}
+                    style={{fontSize: CONSTANT.THEME.FONTSIZE}}>
                     {node.type}
                   </text>
-                  <text x='5' y='47' fill='#000' textAnchor='end' style={{fontSize: '12px'}}>{node.name}</text>
+                  <text x='5' y='47' fill='#000' textAnchor='end' style={{fontSize: CONSTANT.THEME.FONTSIZE}}>{node.name}</text>
                 </g>)
               })}
             </g>
