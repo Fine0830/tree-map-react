@@ -42,7 +42,9 @@ class TreeMap extends React.Component {
     if (!currentNode.children) {
       currentNode.children = [];
     }
+    CONSTANT.NEWNODE.name = Math.random() * 10;
     currentNode.children.push(CONSTANT.NEWNODE);
+
     let rootNode = currentNode;
     while (rootNode.parent) {
       rootNode = rootNode.parent;

@@ -109,7 +109,6 @@ class TreeComponent extends React.Component {
           </g>
           <g>
             {nodes.map((node, i) => {
-              // console.log(nodes);
               node.type = node.data.type;
               node.tmp = node.data.tmp;
               node.error = node.data.error;
