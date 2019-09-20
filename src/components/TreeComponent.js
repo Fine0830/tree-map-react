@@ -11,18 +11,20 @@ import user from '../assets/user.svg';
 import minusCircle from '../assets/circle.svg';
 
 class TreeComponent extends React.Component {
-  state = {
-    nodes: [], // tree nodes
-    links: [], // tree path
+  constructor(props) {
+    super(props);
+    this.state = {
+      nodes: [], // tree nodes
+      links: [], // tree path
+    };
+    this.tree = null;
+    /**
+     * bezier curve generator to path
+     */
+    this.bezierCurveGenerator = d3.linkHorizontal()
+    .x(d => d.y)
+    .y(d => d.x)
   }
-  /**
-   * bezier curve generator to path
-   */
-  bezierCurveGenerator = d3.linkHorizontal()
-  .x(d => d.y)
-  .y(d => d.x)
-
-  tree = null
 
   componentDidMount() {
     this.initMapData();

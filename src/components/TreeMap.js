@@ -9,18 +9,21 @@ import CONSTANT from '../utils/CONSTANT';
 import TreeComponent from './TreeComponent';
 
 class TreeMap extends React.Component {
-  state = {
-    currentNode: {}, // select node
-    menuStatus: 'hidden',
-    positionY: 0,
-    positionX: 0,
-    tranInfo: {
-      k: 1, // scale param
-      x: 60, // translate x
-      y: -30, // translate y
-    },
-    isFullScreen: false,
-    dataSource: null,
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentNode: {}, // select node
+      menuStatus: 'hidden',
+      positionY: 0,
+      positionX: 0,
+      tranInfo: {
+        k: 1, // scale param
+        x: 60, // translate x
+        y: -30, // translate y
+      },
+      isFullScreen: false,
+      dataSource: null,
+    }
   }
 
   componentDidMount() {
