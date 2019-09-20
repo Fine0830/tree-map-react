@@ -1,6 +1,9 @@
 export default {
   name: 'flare',
   type: 'prod',
+  tmp: '3200tpm',
+  error: '14err',
+  avgTime: '1234ms',
   children: [
     {
       name: 'data',

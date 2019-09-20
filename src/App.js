@@ -3,7 +3,7 @@
  * @description Topographic Map
  */
 import React from 'react';
-import TopographicMap from './components/TopographicMap';
+import TreeMap from './components/TreeMap';
 import data from './assets/data';
 import './App.css';
 
@@ -17,7 +17,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <TopographicMap {...this.info} />
+      <TreeMap {...this.info} />
     );
   }
 }
