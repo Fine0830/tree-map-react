@@ -4,7 +4,7 @@
  */
 import React from 'react';
 import * as d3 from 'd3';
-import { Icon } from 'antd';
+import { FullscreenExitOutlined, PlusCircleOutlined, MinusCircleOutlined, FullscreenOutlined, DatabaseOutlined, DeleteRowOutlined, AlignCenterOutlined, WarningOutlined } from '@ant-design/icons';
 import CONSTANT from '../utils/CONSTANT';
 import TreeComponent from './TreeComponent';
 
@@ -183,18 +183,18 @@ class TreeMap extends React.Component {
           </div>
           <div className="add-menu">
             <ul>
-              <li onClick={this.addNode}><Icon type="database" />&nbsp;&nbsp;Create Map</li>
-              <li onClick={this.deleteNode}><Icon type="delete" />&nbsp;&nbsp;Delete Map</li>
-              <li><Icon type="align-center" />&nbsp;&nbsp;View traces</li>
-              <li><Icon type="warning" />&nbsp;&nbsp;View error</li>
+              <li onClick={this.addNode}><DatabaseOutlined />&nbsp;&nbsp;Create Map</li>
+              <li onClick={this.deleteNode}><DeleteRowOutlined />&nbsp;&nbsp;Delete Map</li>
+              <li><AlignCenterOutlined />&nbsp;&nbsp;View traces</li>
+              <li><WarningOutlined />&nbsp;&nbsp;View error</li>
             </ul>
           </div>
         </div>
         <div className="operate-list">
-          <span title="add node" onClick={this.zoomOut}><Icon type="plus-circle" /></span>
-          <span title="delete node" onClick={this.zoomIn}><Icon type="minus-circle" /></span>
+          <span title="add node" onClick={this.zoomOut}><PlusCircleOutlined /></span>
+          <span title="delete node" onClick={this.zoomIn}><MinusCircleOutlined /></span>
           <span onClick={this.viewFullPage}>
-            {isFullScreen ?<Icon type="fullscreen" /> : <Icon type="fullscreen-exit" />}
+            {isFullScreen ? <FullscreenOutlined /> : <FullscreenExitOutlined />}
           </span>
         </div>
       </div>

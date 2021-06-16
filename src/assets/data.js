@@ -1,4 +1,5 @@
-export default {
+
+const data = {
   name: 'flare',
   type: 'prod',
   tmp: '3200tpm',
@@ -74,3 +75,4 @@ export default {
     }
   ]
 }
+export default data;

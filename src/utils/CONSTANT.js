@@ -1,4 +1,4 @@
-export default {
+const data = {
   NEWNODE: { 
     name: 'new node',
     type: 'prod',
@@ -45,3 +45,5 @@ export default {
     y: -30, // translate y
   },
 }
+
+export default data;
